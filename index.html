@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>疯</title>
+    <link rel="stylesheet" type="text/css" href="css/api.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css">
+    <style type="text/css">
+    input, button, textarea, select, optgroup, option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    outline: 0;
+	}
+        /* 头部样式 */
+    #firstHeader {background-color:  #4cb6cb;color: #eaf6f9;}
+	#footer{background-color: #5a6a7a;color: #c9d0d7;min-height: 50px;}
+	
+    .bg-info{text-align: center;position: relative;}
+    .egret-header-box {height: 50px;}
+    /* 头部切换样式 */
+     .titlebar {display: none;}
+     .activebar {display: block;}
+    /* .egret-header-box {height: 50px;} */
+    .fl{float: left;}
+    .fr{float: right;}
+    .left-list{
+        position: absolute;
+        font-size: 1.3em;
+        padding: 9px 16px;
+        line-height: 30px;
+        left: 0;
+        text-decoration: none !important;
+        color: #fff;
+    }
+    .logo-a{
+        float: none;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        height: auto;
+        line-height: 50px;
+        display: inline-block;
+        padding: 0 20px;
+        color: #fff;
+    }
+    .m-l-sm{margin-left: 10px;}
+    .right-settings{
+        position: absolute;
+        font-size: 1.3em;
+        padding: 9px 16px;
+        line-height: 30px;
+        right: 0;
+        text-decoration: none !important;
+    }
+    .search-div{
+    	position: relative;
+    }
+    .ui-searchbar-wrap {
+    	display: -webkit-box;
+    	-webkit-box-pack: center;
+    	-webkit-box-align: center;
+    	background-color: #ebeced;
+    	height: 44px;
+	}
+	.ui-border-b {
+    	border-bottom: 1px solid #e0e0e0;
+	}
+	.ui-searchbar {
+    border-radius: 5px;
+    margin: 0 10px;
+    background: #fff;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    padding-left: 4px;
+    -webkit-box-flex: 1;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    color: #bbb;
+    font-size: 14px;
+    width: 100%;
+}
+.ui-searchbar input {
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    color: #000;
+    width: 100%;
+    padding: 4px 0;
+}
+.ui-border-radius {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+.ui-searchbar-wrap .ui-searchbar-cancel {
+    color: #4cb6cb;
+    font-size: 16px;
+    padding: 4px 8px;
+}
+.ui-searchbar-wrap .ui-searchbar-input, .ui-searchbar-wrap button, .ui-searchbar-wrap .ui-icon-close {
+    display: none;
+}
+.ui-searchbar-wrap.focus {
+    -webkit-box-pack: start;
+}
+.ui-searchbar-wrap.focus .ui-searchbar-input, .ui-searchbar-wrap.focus button, .ui-searchbar-wrap.focus .ui-icon-close {
+    display: block;
+}
+.ui-searchbar-wrap.focus .ui-searchbar-text {
+    display: none;
+}
+.ui-searchbar-input {
+    -webkit-box-flex: 1;
+}
+.ui-searchbar-wrap button {
+    margin-right: 10px;
+}
+.jp-controls > div {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    width: 40px;
+    height: 50px;
+}
+</style>
+</head>
+<body>
+<div id="wrap">
+    <div class="" id="firstHeader" class="titlebar activebar">
+        <div class="bg-info egret-header-box">
+        	<a class="left-list" >
+            	<i class="icon-list"></i>
+            </a>
+            <a class="logo-a">
+			<!--<i class="icon-earphones"></i>
+				<span class="m-l-sm">音乐最前线</span>-->
+            亲爱的小孩
+            </a>
+            <a class="right-settings" onclick="">
+            	<i class="icon-settings"></i> 
+            </a>
+        </div>
+    </div>
+    <div class="search-div">
+    	<div  class="ui-searchbar-wrap ui-border-b" >
+            <div class="ui-searchbar ui-border-radius" >
+                <i class="fa fa-search" style="margin-right: 5px;"></i>
+                <div class="ui-searchbar-text">搜索音乐、歌词、电台</div>
+                <div class="ui-searchbar-input"><input value="" type="tel" placeholder="搜索音乐、歌词、电台" autocapitalize="off"></div>
+                <!-- <i class="icon-close"></i> -->
+            </div>
+            <button class="ui-searchbar-cancel">取消</button>
+        </div>
+        <script type="text/javascript">
+        document.querySelector(".ui-searchbar").addEventListener("click", function(){
+    		document.querySelector(".ui-searchbar-wrap").classList.add('focus');
+    		document.querySelector(".ui-searchbar-input input").focus();
+		});
+		document.querySelector('.ui-searchbar-cancel').addEventListener('click',function(){
+			document.querySelector(".ui-searchbar-wrap").classList.remove('focus');
+		});
+        </script>
+    </div>
+	
+	<!-- 第二头部 -->
+    <div id="" style="height:449px;">
+            
+    </div>
+	
+	<div id="footer">
+		<div class="jp-controls" style="display: table;table-layout: fixed;border-spacing: 0;width: 100%;">
+			<div><a class="jp-previous"><i class="icon-control-rewind i-lg"></i></a></div>
+			<div> 
+				<a class="jp-play" style="display: inline-block;"><i class="icon-control-play i-2x"></i></a>
+				<a class="jp-pause hid" style="display: none;"><i class="icon-control-pause i-2x"></i></a>
+            </div>
+			<div><a class="jp-next"><i class="icon-control-forward i-lg"></i></a></div>
+			<div class="hide" style="display:none;"><a class="jp-stop"><i class="fa fa-stop"></i></a></div>
+			<div><a class="" data-toggle="dropdown" data-target="#playlist"><i class="icon-list"></i></a></div>
+			<div>
+                <a class="jp-shuffle" title="shuffle" style="display: none;"><i class="icon-shuffle text-muted"></i></a>
+                <a class="jp-shuffle-off hid" title="shuffle off" style="display: inline;"><i class="icon-shuffle text-lt"></i></a>
+            </div>
+			<div>
+                <a class="jp-repeat" title="repeat" style="display: inline-block;"><i class="icon-loop text-muted"></i></a>
+                <a class="jp-repeat-off hid" title="repeat off" style="display: none;"><i class="icon-loop text-lt"></i></a>
+            </div>
+		</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+
+</script>
+</html>
