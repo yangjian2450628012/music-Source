@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>css3动画</title>
+	<link rel="icon" href="../images/mv1.jpg" />
+	
+
+	<script type="text/javascript">
+		window.onload = function(){
+				var p1 = document.getElementsByTagName("p")[0];
+				p1.onclick = function(){
+				show();
+			};
+		}
+		
+		var node = {			//定义一个对象
+
+		}
+
+		function show(){			//调出模态框
+			var width = document.body.clientWidth;
+			var content = document.getElementById("content");
+			var content_close = document.getElementById("content-close");
+			var close = document.getElementById("close");
+			var save = document.getElementById("save");
+			var content_width = content.offsetWidth;
+
+			node.width = width;				//向对象中添加width节点
+			node.content = content;
+			node.contentClose = content_close;
+			node.close = close;
+			node.save = save;
+			node.contentWidth = content_width;
+
+			content.style.left = (width - content.offsetWidth)/2+"px";
+			content.style.top = "100px";
+			content_close.onclick = function(){closeModal(1)};
+			close.onclick = function(){closeModal(2)};
+			save.onclick = function(){saveModal()};
+		}
+
+		function closeModal(num){			//关闭模态框
+			if(num == 1){
+				node.content.style.top = "-1000px";
+			}else if(num == 2){
+				var flag = confirm("还未保存，是否要关闭");
+				if(flag){
+					node.content.style.top = "-1000px";
+				}else{
+
+				}
+			}
+		}
+
+		function saveModal(){
+			var flag = confirm("确认保存？");
+			if(flag){
+				alert("保存成功！");
+				node.content.style.top = "-1000px";
+			}else{
+
+			}
+		}
+	</script>
+
+	<style type="text/css">
+		html,head,body{
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			background-color: #F5F5F5;
+		}
+		p{
+			position: relative;
+			display: block;
+			margin-left: 0;
+			margin-top: 0;
+			width: 200px;
+			height: 100px;
+			background-color: #00f;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.content{
+			position: absolute;
+			width: 600px;
+			height: 300px;
+			top: -1000px;
+			background-color: #fff;
+			border: 1px #B0B0B0 solid;
+			border-radius: 7px;
+			box-shadow: 0px 4px 15px #707070;
+			transition: top 1s,width 1s,height 1s;
+			-webkit-transition: top 1s,width 1s,height 1s,opacity 1s;
+		}
+		
+		.content-header{
+			position: relative;
+			width: 100%;
+			height: 55px;
+			border-bottom: 1px #E5E5E5 solid;
+		}
+		.content-title{
+			float: left;
+			height: 100%;
+			width: 70%;
+			padding-left: 20px;
+			line-height: 55px;
+		}
+		.content-header span{
+			display: block;
+			width: 55px;
+			height: 55px;
+			float: right;
+			text-align: center;
+			line-height: 55px;
+			color: #CCCCCC;
+			font-weight: bolder;
+			cursor: pointer;
+			-webkit-transition: -webkit-transform 0.5s ease-out;
+			-moz-transition: -moz-transform 0.5s ease-out;
+			transition: transform 0.5s ease-out;
+		}
+		.content-header span:hover{
+			font-weight: bolder;
+			color: #808080;
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			transform:rotate(360deg);
+		}
+		.content-footer{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 65px;
+			border-top: 1px #e5e5e5 solid;
+		}
+		.btn-group{
+			float: right;
+			width: 60%;
+			height: 65px;
+			line-height: 65px;
+		}
+		.btn-group span{
+			display: block;
+			float: right;
+			height: 30px;
+			margin-top: 17px;
+			margin-right: 20px;
+			text-align: center;
+			line-height: 30px;
+			min-width: 55px;
+			border-radius: 5px;
+		}
+		.btn-group span.save{
+			background-color: #337AB7;
+			color: #fff;
+			font-size: 15px;
+			font-weight: bolder;
+			border: 1px #2E6DA4 solid;
+			padding: 3px 10px 3px 10px;
+		}
+		.btn-group span.save:hover{
+			background-color: #286090;
+			color: #fff;
+			cursor: pointer;
+			border: 1px #204D74 solid;
+		}
+		.btn-group span.close{
+			background-color: #fff;
+			color: #000;
+			font-size: 15px;
+			border: 1px #CCCCCC solid;
+			padding: 3px 10px 3px 10px;
+		}
+		.btn-group span.close:hover{
+			background-color: #E6E6E6;
+			color: #000;
+			cursor: pointer;
+			border: 1px #ADADAD solid;
+		}
+	</style>
+</head>
+<body>
+	<p>用原先JS实现bootstrap下拉模态框功能,<br>请点击这里！！！</p>
+	<div class="content" id="content">
+		<div class="content-header">			<!-- 内容头部 -->
+			<div class="content-title">
+				Modal Title
+			</div>
+			<span class="content-close" id="content-close">×</span>
+		</div>
+		<div class="content-body">				<!-- 内容身体部分 -->
+			
+		</div>
+		<div class="content-footer">			<!-- 内容脚部部分 -->
+			<div class="btn-group">
+				<span class="save" id="save">保存</span>
+				<span class="close" id="close">关闭</span>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

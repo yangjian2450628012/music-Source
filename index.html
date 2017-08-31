@@ -9,26 +9,26 @@
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="css/simple-line-icons.css">
     <style type="text/css">
-    input, button, textarea, select, optgroup, option {
+input, button, textarea, select, optgroup, option {
     font-family: inherit;
     font-size: inherit;
     font-style: inherit;
     font-weight: inherit;
     outline: 0;
-	}
-        /* 头部样式 */
-    #firstHeader {background-color:  #4cb6cb;color: #eaf6f9;}
-	#footer{background-color: #5a6a7a;color: #c9d0d7;min-height: 50px;}
-	
-    .bg-info{text-align: center;position: relative;}
-    .egret-header-box {height: 50px;}
-    /* 头部切换样式 */
-     .titlebar {display: none;}
-     .activebar {display: block;}
-    /* .egret-header-box {height: 50px;} */
-    .fl{float: left;}
-    .fr{float: right;}
-    .left-list{
+}
+/* 头部样式 */
+#firstHeader {background-color:  #4cb6cb;color: #eaf6f9;}
+#footer{background-color: #5a6a7a;color: #c9d0d7;min-height: 50px;}
+#footer a{color: #e6eaed;}
+
+.bg-info{text-align: center;position: relative;}
+.egret-header-box {height: 50px;}
+/* 头部切换样式 */
+.titlebar {display: none;}
+.activebar {display: block;}
+.fl{float: left;}
+.fr{float: right;}
+.left-list{
         position: absolute;
         font-size: 1.3em;
         padding: 9px 16px;
@@ -67,10 +67,10 @@
     	background-color: #ebeced;
     	height: 44px;
 	}
-	.ui-border-b {
-    	border-bottom: 1px solid #e0e0e0;
-	}
-	.ui-searchbar {
+.ui-border-b {
+    border-bottom: 1px solid #e0e0e0;
+}
+.ui-searchbar {
     border-radius: 5px;
     margin: 0 10px;
     background: #fff;
@@ -121,12 +121,104 @@
 .ui-searchbar-wrap button {
     margin-right: 10px;
 }
-.jp-controls > div {
+.ui-controls > div {
     display: table-cell;
     vertical-align: middle;
     text-align: center;
     width: 40px;
     height: 50px;
+    color: #fff;
+}
+.ui-controls .hid,.ui-controls .hide{display: none;}
+.ui-controls .text-muted {
+    color: #acb7c1 !important;
+}
+.ui-controls .text-lt {
+    color: #ffffff !important;
+}
+.ui-playlist .dker{background-color: #405161;}
+.ui-playlist{text-align: left;}
+.dropup .dropdown-menu{
+    top: auto;
+    bottom: 100%;
+    margin-bottom: 1px;
+}
+.ui-playlist ul {
+    max-height: 320px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    display: none !important;
+}
+.ui-playlist li {
+    list-style: none;
+    position: relative;
+}
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    line-height: 1.42857143;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+/* .aside-xl {
+    width: 360px;
+} */
+.dropdown-menu {
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+.ui-playlist-item-remove {
+    font-size: 15px;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 11px 18px;
+    opacity: 0.6;
+}
+.ui-playlist li:first-child .ui-playlist-item {
+    border-width: 0;
+}
+.ui-playlist-item {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    padding: 12px 40px 12px 8px;
+}
+.ui-artist {
+    opacity: 0.6;
+}
+a.ui-playlist-current:before {
+    content: "\f144";
+    opacity: 1;
+}
+.ui-playlist-item:before {
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    font-family: FontAwesome;
+    content: "\f0da";
+    opacity: 0.6;
 }
 </style>
 </head>
@@ -152,51 +244,169 @@
             <div class="ui-searchbar ui-border-radius" >
                 <i class="fa fa-search" style="margin-right: 5px;"></i>
                 <div class="ui-searchbar-text">搜索音乐、歌词、电台</div>
-                <div class="ui-searchbar-input"><input value="" type="tel" placeholder="搜索音乐、歌词、电台" autocapitalize="off"></div>
+                <div class="ui-searchbar-input"><input value="" type="text" placeholder="搜索音乐、歌词、电台" autocapitalize="off"></div>
                 <!-- <i class="icon-close"></i> -->
             </div>
             <button class="ui-searchbar-cancel">取消</button>
         </div>
         <script type="text/javascript">
-        document.querySelector(".ui-searchbar").addEventListener("click", function(){
-    		document.querySelector(".ui-searchbar-wrap").classList.add('focus');
-    		document.querySelector(".ui-searchbar-input input").focus();
-		});
-		document.querySelector('.ui-searchbar-cancel').addEventListener('click',function(){
-			document.querySelector(".ui-searchbar-wrap").classList.remove('focus');
-		});
+            document.querySelector(".ui-searchbar").addEventListener("click", function(){
+        		document.querySelector(".ui-searchbar-wrap").classList.add('focus');
+        		document.querySelector(".ui-searchbar-input input").focus();
+    		});
+    		document.querySelector('.ui-searchbar-cancel').addEventListener('click',function(){
+    			document.querySelector(".ui-searchbar-wrap").classList.remove('focus');
+    		});
         </script>
     </div>
 	
 	<!-- 第二头部 -->
-    <div id="" style="height:449px;">
+    <div id="secHeader">
             
+    </div>
+
+    <div id="main">
+        
     </div>
 	
 	<div id="footer">
-		<div class="jp-controls" style="display: table;table-layout: fixed;border-spacing: 0;width: 100%;">
-			<div><a class="jp-previous"><i class="icon-control-rewind i-lg"></i></a></div>
-			<div> 
-				<a class="jp-play" style="display: inline-block;"><i class="icon-control-play i-2x"></i></a>
-				<a class="jp-pause hid" style="display: none;"><i class="icon-control-pause i-2x"></i></a>
+		<div class="ui-controls" style="display: table;table-layout: fixed;border-spacing: 0;width: 100%;">
+			<div><a class="ui-previous"><i class="icon-control-rewind i-lg"></i></a></div>
+			<div id="play-but"> 
+				<a class="ui-play"><i class="icon-control-play i-2x"></i></a>
+				<a class="ui-pause hid"><i class="icon-control-pause i-2x"></i></a>
             </div>
-			<div><a class="jp-next"><i class="icon-control-forward i-lg"></i></a></div>
-			<div class="hide" style="display:none;"><a class="jp-stop"><i class="fa fa-stop"></i></a></div>
-			<div><a class="" data-toggle="dropdown" data-target="#playlist"><i class="icon-list"></i></a></div>
-			<div>
-                <a class="jp-shuffle" title="shuffle" style="display: none;"><i class="icon-shuffle text-muted"></i></a>
-                <a class="jp-shuffle-off hid" title="shuffle off" style="display: inline;"><i class="icon-shuffle text-lt"></i></a>
+			<div><a class="ui-next"><i class="icon-control-forward i-lg"></i></a></div>
+			<div class="hide"><a class="jp-stop"><i class="fa fa-stop"></i></a></div>
+			<div id="playlist-btn"><a class=""><i class="icon-list"></i></a></div>
+			<div id="shuffle-btn">
+                <a class="ui-shuffle" title="shuffle"><i class="icon-shuffle text-muted"></i></a>
+                <a class="ui-shuffle-off hid" title="shuffle off"><i class="icon-shuffle text-lt"></i></a>
             </div>
-			<div>
-                <a class="jp-repeat" title="repeat" style="display: inline-block;"><i class="icon-loop text-muted"></i></a>
-                <a class="jp-repeat-off hid" title="repeat off" style="display: none;"><i class="icon-loop text-lt"></i></a>
+			<div id="repeat-btn">
+                <a class="ui-repeat" title="repeat" ><i class="icon-loop text-muted"></i></a>
+                <a class="ui-repeat-off hid" title="repeat off"><i class="icon-loop text-lt"></i></a>
             </div>
 		</div>
+        <div class="ui-playlist dropup open" id="playlist">
+            <ul class="dropdown-menu aside-xl dker hid">
+                <li class="ui-playlist-current">
+                <div>
+                    <a href="javascript:;" class="ui-playlist-item-remove">×</a>
+                        <a href="javascript:;" class="ui-playlist-item ui-playlist-current" tabindex="1">心灵的故乡 
+                        <span class="ui-artist">by 丽江康康</span>
+                    </a>
+                </div>
+                </li>
+                <li>
+                <div>
+                    <a href="javascript:;" class="ui-playlist-item-remove">×</a>
+                        <a href="javascript:;" class="ui-playlist-item" tabindex="1">我想和你虚度光阴 
+                        <span class="ui-artist">by 陈璧</span>
+                    </a>
+                </div>
+                </li>
+            </ul>
+        </div>
+        <audio id="music-audio" src="http://o6lf7x0ik.bkt.clouddn.com/a705849a78.mp3"></audio>
     </div>
 </div>
 </body>
-<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript" src="script/api.js"></script>
 <script type="text/javascript">
+var firstHeader = $api.byId('firstHeader');
+var secHeader = $api.byId('secHeader');
+var firstHeaderOffset;
+var firstHeaderIndexHeight;
+
+var main      = $api.byId('main');
+var mainPos   = $api.offset(main);
+
+var footer    = $api.byId('footer');
+var footerPos = $api.offset(footer);
+
+// 完成首页初始化
+apiready = function() {
+    // 设置ios7的标题栏字体变亮，全局用一个就行了
+    api.setStatusBarStyle({
+        style: 'dark'
+    });
+
+    firstHeader = $api.byId('firstHeader');
+    secHeader = $api.byId('secHeader');
+
+    var fortheader = $api.byId('fortheader');
+    var firstHeaderIndex = $api.byId('firstHeaderIndex');
+
+    $api.fixStatusBar( $api.dom( '.titlebar.activebar .topbar') );
+
+    var main = $api.byId('main');
+    var mainPos = $api.offset(main);
+
+    var footer = $api.byId('footer');
+    var footerPos = $api.offset(footer);
+
+    //设计播放器
+     // playMusic();
+
+};
+
+window.onload = function () {
+    playMusic();
+}
+
+var playdom = function(){
+    this.musicAudio = document.querySelector('#music-audio'); // audio标签
+    this.playBtn = document.querySelector('#play-but'); // 播放按钮
+    this.shuffleb = document.querySelector("#shuffle-btn");
+    this.repeat = document.querySelector("#repeat-btn");
+    this.playlist = document.querySelector("#playlist-btn");
+};
+
+function playMusic(){
+    var player = new playdom();
+    player.playBtn.onclick = function(){
+        player.musicAudio.onplaying = null;  //  清除audio标签绑定的事件
+        if (player.musicAudio.paused) { //暂停
+            document.querySelector(".ui-pause").classList.remove('hid');
+            document.querySelector('.ui-play').classList.add('hid');
+            player.musicAudio.play();
+        } else { //播放
+            document.querySelector('.ui-play').classList.remove('hid');
+            document.querySelector(".ui-pause").classList.add('hid');
+            player.musicAudio.pause();
+        }
+    };
+    player.shuffleb.onclick = function(){
+        _switch(this);
+    };
+    player.repeat.onclick = function(){
+        _switch(this);
+    };
+    player.playlist.onclick = function(){
+        var playlistbody = document.querySelector("#playlist");
+         var c = playlistbody.children[0];
+        if(playlistbody.style.position == ""){
+            playlistbody.style.cssText = "position: relative;";
+            c.style.cssText = "display: block !important; bottom: 50px; left: 0px; right: 0px;"
+        }else{
+            playlistbody.style.cssText = "";
+            c.style.cssText = ""
+        }
+    };
+
+    function _switch(el){ //切换
+        var one = el.children[0],two = el.children[1];
+        if(one.className.search("hid") > -1){
+            one.classList.remove("hid");
+            two.classList.add("hid");
+        }else{
+            one.classList.add("hid");
+            two.classList.remove("hid");
+        }
+    }
+
+}
 
 </script>
 </html>

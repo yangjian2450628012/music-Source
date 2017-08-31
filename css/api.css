@@ -78,8 +78,6 @@ td,th {
 .loading_more:after {
 	content: '加载更多';	
 }
-#secHeader {background-color:  #D43C33;}
-#thridHeader {background-color:  #D43C33;}
 /*input-placeholder颜色*/
 ::-webkit-input-placeholder {
   color: #bbb; 
